@@ -1,49 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:padding="16dp"
-    android:orientation="vertical">
+    tools:context=".MainActivity"
+    android:background="@color/background_color">
 
+    <!-- TextView para mostrar as tentativas restantes -->
     <TextView
         android:id="@+id/textTentativas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tentativas: 6"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"/>
 
+    <!-- ProgressBar circular para mostrar o progresso -->
+    <ProgressBar
+        android:id="@+id/progressBarCircular"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/barra_de_progresso_circular"
+        app:layout_constraintTop_toBottomOf="@id/textTentativas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- TextView para mostrar a palavra oculta -->
     <TextView
         android:id="@+id/textOculto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="______"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/progressBarCircular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- EditText para a entrada da letra -->
     <EditText
+        android:id="@+id/editEntrada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editEntrada"
         android:layout_marginTop="20dp"
         android:maxLength="1"
         android:inputType="text"
-        android:hint="Digite Uma Letra"/>
+        android:hint="Digite uma letra"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/textOculto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Botão para adivinhar a letra -->
     <Button
+        android:id="@+id/buttonAdivinhar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adivinhar"
         android:layout_marginTop="20dp"
-        android:id="@+id/buttonAdivinhar"/>
+        android:text="Adivinhar"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@id/editEntrada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonReiniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Reiniciar"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/buttonAdivinhar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!-- TextView para mostrar o status do jogo (erros ou mensagens de vitória) -->
 
     <TextView
         android:id="@+id/textStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text=""
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
-        android:layout_marginTop="20dp"/>
-</LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonAdivinhar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
