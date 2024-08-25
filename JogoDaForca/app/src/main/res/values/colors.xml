@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#FFFFFF</color>
+    <color name="colorAccent">#FF4081</color> <!-- Ou qualquer cor de destaque que você prefira -->
+    <color name="colorPrimary">#3F51B5</color> <!-- Cor principal da sua aplicação -->
+    <color name="colorPrimaryDark">#303F9F</color> <!-- Cor de ênfase, normalmente usada para o status bar -->
 </resources>
